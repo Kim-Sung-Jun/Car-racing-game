@@ -5,9 +5,12 @@ import java.util.List;
 
 public class Play {
 
+    Input input = new Input();
+    Output output = new Output();
+
     private int INITIAL_PRICE = -1;
 
-    public void proceed(Input input, Output output) {
+    public void proceed() {
         List<String> names = input.divideName(input.returnStringScanner());
         List<Car> cars = new ArrayList<>();
         int severalTimes = input.returnIntScanner();
@@ -26,7 +29,7 @@ public class Play {
                 cars.get(j).moveCar();
                 cars.get(j).drawPosition();
             }
-            System.out.println();
+            output.println();
         }
     }
 

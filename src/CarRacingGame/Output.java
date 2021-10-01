@@ -10,4 +10,10 @@ public class Output {
     public void printWinner(String name) {
         System.out.println(name + "가 최종 우승했습니다.");
     }
+
+    public void println() {
+        System.out.println();
+    }
+
+
 }
