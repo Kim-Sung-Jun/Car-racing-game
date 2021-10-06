@@ -1,33 +1,42 @@
 package CarRacingGame;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.List;
 
 public class Play {
 
-    Input input = new Input();
-    Output output = new Output();
+    private final int INITIAL_PRICE = -1;
+    private final int NAME_LENGTH_CRITERIA = 5;
 
-    private int INITIAL_PRICE = -1;
+    private final Input input = new Input();
+    private final CarName carName = new CarName();
 
-    public void proceed() {
-        List<String> names = input.divideName(input.returnStringScanner());
+    public void proceed(Output output) throws InputMismatchException, ExceptionLength {
+        List<String> names = carName.divideName(input.inputCarName());
+        for (String name : names) {
+            if (name.length() > NAME_LENGTH_CRITERIA) {
+                throw new ExceptionLength();
+            }
+        }
         List<Car> cars = new ArrayList<>();
-        int severalTimes = input.returnIntScanner();
-        for (int i = 0; i < names.size(); i++) {
-            Car car = new Car(names.get(i));
+        int severalTimes = input.inputProgressCount();
+        for (String name : names) {
+            Car car = new Car(name);
             cars.add(car);
         }
+        output.println();
         output.printExecutionResult();
-        showMoveDistance(severalTimes, cars);
+        showMoveDistance(severalTimes, cars, output);
         lookForWinner(cars, output);
     }
 
-    private void showMoveDistance(int severalTimes, List<Car> cars) {
+    private void showMoveDistance(int severalTimes, List<Car> cars, Output output) {
         for (int i = 0; i < severalTimes; i++) {
-            for (int j = 0; j < cars.size(); j++) {
-                cars.get(j).moveCar();
-                cars.get(j).drawPosition();
+            for (Car car : cars) {
+                RandomNumbers randomNumbers = new RandomNumbers();
+                car.moveCar(randomNumbers);
+                output.drawPosition(car);
             }
             output.println();
         }
@@ -36,13 +45,13 @@ public class Play {
     private void lookForWinner(List<Car> cars, Output output) {
         String name = "";
         int max = INITIAL_PRICE;
-        for (int i = 0; i < cars.size(); i++) {
-            if (cars.get(i).getPosition() == max) {
-                name = name + ", " + cars.get(i).getName();
+        for (Car car : cars) {
+            if (car.getPosition() == max) {
+                name = name + ", " + car.getName();
             }
-            if (cars.get(i).getPosition() > max) {
-                name = cars.get(i).getName();
-                max = cars.get(i).getPosition();
+            if (car.getPosition() > max) {
+                name = car.getName();
+                max = car.getPosition();
             }
         }
         output.printWinner(name);

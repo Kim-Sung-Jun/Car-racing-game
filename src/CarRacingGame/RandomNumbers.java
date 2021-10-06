@@ -8,7 +8,6 @@ public class RandomNumbers {
 
     public int makeRandomNumber() {
         Random random = new Random();
-        int randomNumber = random.nextInt(RANDOM_NUMBERS_FROM_0_TO_9);
-        return randomNumber;
+        return random.nextInt(RANDOM_NUMBERS_FROM_0_TO_9);
     }
 }

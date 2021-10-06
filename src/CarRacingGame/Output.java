@@ -3,7 +3,6 @@ package CarRacingGame;
 public class Output {
 
     public void printExecutionResult() {
-        System.out.println();
         System.out.println("실행결과");
     }
 
@@ -15,5 +14,20 @@ public class Output {
         System.out.println();
     }
 
+    public void drawPosition(Car car) {
+        System.out.print(car.getName() + " : ");
+        for (int i = 0; i < car.getPosition(); i++) {
+            System.out.print("-");
+        }
+        println();
+    }
+
+    public void InputMismatchException() {
+        System.out.println("유효하지 않은 값입니다.");
+    }
+
+    public void printTermination() {
+        System.out.println("시스템이 정상 종료되었습니다.");
+    }
 
 }
