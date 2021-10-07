@@ -6,8 +6,8 @@ import java.util.List;
 
 public class Play {
 
-    private final int INITIAL_PRICE = -1;
-    private final int NAME_LENGTH_CRITERIA = 5;
+    private static final int INITIAL_PRICE = -1;
+    private static final int NAME_LENGTH_CRITERIA = 5;
 
     private final Input input = new Input();
     private final CarName carName = new CarName();
