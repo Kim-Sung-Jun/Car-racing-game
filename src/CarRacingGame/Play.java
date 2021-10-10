@@ -47,7 +47,7 @@ public class Play {
         int max = INITIAL_PRICE;
         for (Car car : cars) {
             if (car.getPosition() == max) {
-                name = name + ", " + car.getName();
+                name = name + ", " + car.getName(); //포멧으로 바꾸기
             }
             if (car.getPosition() > max) {
                 name = car.getName();
