@@ -1,20 +1,21 @@
 package CarRacingGame;
 
-import java.util.InputMismatchException;
-
 public class CarRacingGameDriver {
 
     public static void main(String[] args) {
-        Play play = new Play();
-        Output output = new Output();
-        try {
-            play.proceed(output);
-        } catch (InputMismatchException ime) {
-            output.InputMismatchException();
-            output.printTermination();
-        } catch (ExceptionLength el) {
-            System.out.println(el.getMessage());
-            output.printTermination();
+        String carsName = Input.inputCarName();
+        int attempt = Input.inputProgressCount();
+        Play play = createPlay(carsName, attempt);
+        play.proceedGame();
+    }
+
+    private static Play createPlay(String carsName, int attempt) {
+        while (true) {
+            try {
+                return new Play(carsName, attempt);
+            } catch (IllegalArgumentException e) {
+                Output.printExceptionMsg(e.getMessage());
+            }
         }
     }
 }

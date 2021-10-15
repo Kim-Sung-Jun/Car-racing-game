@@ -2,7 +2,7 @@ package CarRacingGame;
 
 public class Car {
 
-    private final int CONDITION_NUMBER = 4;
+    private static final int CONDITION_NUMBER = 4;
 
     private final String name;
     private int position = 0;
