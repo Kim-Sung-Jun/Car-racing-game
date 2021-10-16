@@ -16,7 +16,6 @@ public class Play {
 
     public void proceedGame() {
         List<Car> cars = new ArrayList<>();
-
         for (String name : names) {
             Car car = new Car(name);
             cars.add(car);

@@ -29,5 +29,4 @@ public class CarName {
         }
         Output.printWinner(name);
     }
-
 }
