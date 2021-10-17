@@ -22,10 +22,6 @@ public class Output {
         println();
     }
 
-    public static void InputMismatchException() {
-        System.out.println("유효하지 않은 값입니다.");
-    }
-
     public static void printTermination() {
         System.out.println("시스템이 정상 종료되었습니다.");
     }
