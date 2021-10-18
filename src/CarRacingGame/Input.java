@@ -12,8 +12,8 @@ public class Input {
         return SCANNER.next();
     }
 
-    public static int inputProgressCount() {
+    public static String inputProgressCount() {
         System.out.println("시도할 회수는 몇회인가요?");
-        return SCANNER.nextInt();
+        return SCANNER.next();
     }
 }

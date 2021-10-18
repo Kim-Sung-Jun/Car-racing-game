@@ -22,12 +22,7 @@ public class Output {
         println();
     }
 
-    public static void printTermination() {
-        System.out.println("시스템이 정상 종료되었습니다.");
-    }
-
     public static void printExceptionMsg(String msg) {
         System.out.println(msg);
     }
-
 }

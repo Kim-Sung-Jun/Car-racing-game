@@ -9,9 +9,10 @@ public class Play {
     private static List<String> names = new ArrayList<>();
     private static int attempt = 0;
 
-    public Play(String carsName, int attempt) {
+    public Play(String carsName, String attempt) {
         names = carName.divideName(carsName);
-        Play.attempt = attempt;
+        new Attempt(attempt);
+        Play.attempt = Attempt.getNumber();
     }
 
     public void proceedGame() {
@@ -23,7 +24,7 @@ public class Play {
         Output.println();
         Output.printExecutionResult();
         showMoveDistance(attempt, cars);
-        CarName.findWinnerName(cars);
+        Winner.findWinnerName(cars);
     }
 
     private void showMoveDistance(int severalTimes, List<Car> cars) {

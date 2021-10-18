@@ -4,12 +4,12 @@ public class CarRacingGameDriver {
 
     public static void main(String[] args) {
         String carsName = Input.inputCarName();
-        int attempt = Input.inputProgressCount();
+        String attempt = Input.inputProgressCount();
         Play play = createPlay(carsName, attempt);
         play.proceedGame();
     }
 
-    private static Play createPlay(String carsName, int attempt) {
+    private static Play createPlay(String carsName, String attempt) {
         while (true) {
             try {
                 return new Play(carsName, attempt);
